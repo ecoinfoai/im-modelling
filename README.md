@@ -37,6 +37,8 @@ vibrio_year_histogram()      # ← 실제 코드는 src/ 에 있고 test/ 가 �
 
 ```
 im-modelling/
+├── .github/workflows/
+│   └── publish.yml          master push → 렌더 → GitHub Pages 배포
 ├── Project.toml            ImModelling 패키지 정의 (+ 의존성)
 ├── src/ImModelling.jl       시뮬레이션·작도 함수  ← 코드는 여기
 ├── test/runtests.jl         Test.jl (TDD)
@@ -83,12 +85,15 @@ ecoinfonix에서:
 ```bash
 python scripts/sync.py                 # 원고·그림 가져오기 + chapters/*.qmd 변환
 cd docs && quarto preview              # 브라우저 확인 (선택)
-quarto publish gh-pages                # 렌더 후 gh-pages 로 배포
 cd .. && git add -A && git commit -m "원고 갱신" && git push
 ```
 
-`quarto publish gh-pages` 는 **로컬에서 렌더한 결과만** 올리므로 GitHub 서버에 Julia가
-없어도 된다. 계산 결과는 `docs/_freeze/` 에 저장(freeze)되어, 바뀐 문서만 다시 계산한다.
+**배포는 push 만 하면 끝난다.** `master` 에 push 하면
+`.github/workflows/publish.yml` 이 CI에서 Julia + Quarto 로 렌더해 Pages 에 올린다
+(`quarto publish gh-pages` 를 직접 칠 필요 없음 — 로컬에 Quarto 가 없어도 된다).
+
+계산 결과는 `docs/_freeze/` 에 저장(freeze)되어 커밋된다. freeze 가 최신이면 CI 는
+Julia 실행을 건너뛰고, 바뀐 문서만 다시 계산한다.
 
 ## 그림 방침
 
