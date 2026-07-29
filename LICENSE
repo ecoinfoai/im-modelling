@@ -1,3 +1,7 @@
+This license covers the software in this repository only: src/, test/,
+scripts/, flake.nix, and the build configuration. The teaching material
+under docs/ is licensed separately -- see LICENSE-docs.md.
+
 MIT License
 
 Copyright (c) 2026 Kwang-Seuk Jeong
