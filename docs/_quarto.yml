@@ -1,0 +1,45 @@
+project:
+  type: website
+  output-dir: _site          # 렌더 결과 (docs/_site) — Documenter의 docs/build 에 해당
+
+website:
+  title: "감염미생물학 — 환경·확률·분포"
+  description: "간호학과 감염미생물학 12–14주차 교안과 Julia 시뮬레이션 데모"
+  site-url: "https://ecoinfoai.github.io/im-modelling/"
+  repo-url: "https://github.com/ecoinfoai/im-modelling"
+  page-navigation: true
+  navbar:
+    left:
+      - href: index.qmd
+        text: 소개
+      - text: 교안
+        menu:
+          - href: chapters/ch1.qmd
+            text: "Ch.1 환경과 감염병"
+          - href: chapters/ch2.qmd
+            text: "Ch.2 확률"
+          - href: chapters/ch3.qmd
+            text: "Ch.3 분포"
+  page-footer:
+    center: "감염미생물학 교안 · 부산보건대학교"
+
+format:
+  html:
+    theme: [cosmo, styles.scss]
+    toc: true
+    toc-depth: 3
+    toc-title: "목차"
+    fig-align: center
+    fig-cap-location: bottom
+    code-fold: true
+    code-summary: "코드 보기"
+    link-external-newwindow: true
+
+lang: ko
+
+# Julia 실행 엔진. 결과를 freeze 해 두면 재렌더가 빠르고, gh-pages 배포 시 CI에 Julia가 없어도 된다.
+engine: julia
+execute:
+  freeze: auto
+  warning: false
+  echo: true

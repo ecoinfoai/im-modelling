@@ -1,0 +1,10 @@
+# 문서 렌더 전용 Julia 환경 — Documenter의 docs/Project.toml 과 같은 역할.
+# 부모 패키지(ImModelling)를 dev 로 물려 문서의 {julia} 블록이 `using ImModelling` 하게 한다.
+#   설치(최초 1회):
+#     julia --project=docs -e 'using Pkg; Pkg.develop(path=".."); Pkg.instantiate()'
+[deps]
+CairoMakie = "13f3f980-e62b-5c42-98c6-ff1f3baf88f0"
+ImModelling = "b9e3a7c2-1d4f-4a8e-9c6b-2f0e5d7a1c34"
+
+[compat]
+julia = "1.10"

@@ -1,0 +1,22 @@
+# 로컬 설정 (머신마다 다름)
+config.toml
+
+# Quarto 산출물
+docs/_site/
+docs/.quarto/
+/*_files/
+docs/**/*_files/
+
+# Julia 환경 잠금 (환경별로 재생성)
+Manifest.toml
+docs/Manifest.toml
+
+# Syncthing 충돌 사본
+*.sync-conflict-*
+
+# OS / 파이썬
+.DS_Store
+Thumbs.db
+desktop.ini
+__pycache__/
+*.pyc
