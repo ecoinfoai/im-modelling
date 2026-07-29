@@ -9,7 +9,9 @@ docs/chapters/*.qmd 는 직접 손대지 않는다(자동 생성물, .gitignore 
   2. 콜아웃  > [!note] 제목  →  ::: {.callout-note title="제목"} … :::
              > [!example] 교수 데모  →  ::: {.callout-note .demo …}  (보라색 ▶ 상자)
   3. 그림  ![[fig.png]] + "그림 N. 설명"
-           → ![그림 N. 설명](../assets/fig.png){#fig-…}
+           → ![설명](../assets/fig.png){#fig-…}
+           "그림 N." 은 떼어낸다. #fig- id 가 붙으면 Quarto 가 번호를 매기므로,
+           그대로 두면 "그림 1: 그림 1. 설명" 처럼 두 번 나온다.
            단, 코드로 대체하기로 한 그림은 ```{julia}``` 블록으로 치환(CODE_FIGURES).
   4. 파일명 교정(NAME_FIX): 원고 참조명 → 실제 assets 파일명.
   5. 위키링크 [[문서]] → 표시 텍스트만.
@@ -32,7 +34,7 @@ DEMO_TITLE_RE = re.compile(r"교수\s*데모")
 CALLOUT_OPEN_RE = re.compile(r"^>\s*\[!([A-Za-z]+)\]([+-]?)\s*(.*)$")
 EMBED_RE = re.compile(r"^!\[\[([^\]|]+?)(?:\|([^\]]*))?\]\]\s*$")
 WIKILINK_RE = re.compile(r"(?<!!)\[\[([^\]|]+?)(?:\|([^\]]*))?\]\]")
-CAPTION_RE = re.compile(r"^(그림\s*\d+[.、]?\s*.*)$")
+CAPTION_RE = re.compile(r"^그림\s*\d+\s*[.、]?\s*(.*)$")
 
 # 원고 참조명 → assets 실제 파일명 (수정된 것만)
 NAME_FIX = {
@@ -103,8 +105,9 @@ def convert_figures(lines, prefix):
         k = i + 1
         while k < n and not lines[k].strip():
             k += 1
-        if k < n and CAPTION_RE.match(lines[k].strip()):
-            caption = lines[k].strip(); i = k
+        cap_m = CAPTION_RE.match(lines[k].strip()) if k < n else None
+        if cap_m:
+            caption = cap_m.group(1).strip(); i = k
         if fname in CODE_FIGURES:                      # 코드로 대체
             call, label = CODE_FIGURES[fname]
             cap = caption.replace('"', r'\"')
