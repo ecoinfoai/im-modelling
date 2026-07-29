@@ -277,12 +277,3 @@ Sartwell, P. E. (1950). The distribution of incubation periods of infectious dis
 Semenza, J. C., Trinanes, J., Lohr, W., Sudre, B., Löfdahl, M., Martinez-Urtaza, J., Nichols, G. L., & Rocklöv, J. (2017). Environmental suitability of Vibrio infections in a warming climate: An early warning system. *Environmental Health Perspectives, 125*(10), 107004. https://doi.org/10.1289/EHP2198
 
 국립수산과학원. (2023). *한국 연근해 표층수온 장기 변동 분석* [Long-term change in sea surface temperature of Korean waters]. 국립수산과학원. *(집필 최종 단계에서 국립수산과학원 원자료 서지정보로 확인 예정)*
-
----
-
-::: {.callout-note title="다음 단계 (교수님께)"}
-- **교수 데모 5종**(네 분포 모양 갤러리 · 몬테카를로 '같은 여름 100번' · 해수온→위험 예보 · 분포 이동 애니메이션 · 개입 on/off 비교)을 **GitHub Pages에서 잘 도는 Julia**로 제작하는 일은 다음 세션에서 진행합니다.
-- 본문의 `그림 추가>` 표시는 삽화·그래프가 들어갈 자리입니다. 데모 산출물을 그대로 그림으로 쓸 수 있게 맞추겠습니다.
-- 새로 인용한 국내 수치(2023 발생·사망·계절 분포)는 PHWR 역학보고(Park et al., 2024)로 확인했고, 해수온 추세는 국립수산과학원 발표치를 사용했습니다 — 국립수산과학원 인용은 최종 단계에서 원 보고서 서지정보로 확정하겠습니다.
-- 13주차 마무리의 14주차 예고 문구와 상호 참조가 잘 맞물리는지 최종 교차 점검하겠습니다.
-:::

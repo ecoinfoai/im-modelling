@@ -392,10 +392,3 @@ Wu, J., Ge, L., Liu, F., Song, Q., & Stanley, D. (2020). Pesticide-induced plant
 Wu, R., Trubl, G., Taş, N., & Jansson, J. K. (2022). Permafrost as a potential pathogen reservoir. *One Earth, 5*(4), 351–360. https://doi.org/10.1016/j.oneear.2022.03.010
 
 Yu, X.-J., Liang, M.-F., Zhang, S.-Y., Liu, Y., Li, J.-D., Sun, Y.-L., Zhang, L., Zhang, Q.-F., Popov, V. L., Li, C., Qu, J., Li, Q., Zhang, Y.-P., Hai, R., Wu, W., Wang, Q., Zhan, F.-X., Wang, X.-J., Kan, B., … Li, D.-X. (2011). Fever with thrombocytopenia associated with a novel bunyavirus in China. *New England Journal of Medicine, 364*(16), 1523–1532. https://doi.org/10.1056/NEJMoa1010095
-
----
-
-::: {.callout-note title="다음 단계 (13·14주차 예고)"}
-- **13주차(확률)**: 오늘 5절의 "이동·확산은 확률의 문제"를 이어받아 노출–감염–중증의 3단계, 위험군의 조건부확률을 자연빈도(사람 수 세기)로. 비브리오(위험군 치명률)와 말라리아를 관통 사례로 재사용.
-- **14주차(분포)**: 오늘 6절의 '분포 이동'을 분포·예보 개념으로. 해수온→비브리오 위험 예보, 몬테카를로 데모로 "같은 여름을 100번 돌리면 매번 다른 결과"를 시각화.
-:::

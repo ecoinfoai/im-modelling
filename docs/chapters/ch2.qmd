@@ -370,11 +370,3 @@ Kim, H. S., Kim, D. M., Neupane, G. P., Lee, Y. M., Yang, N. W., Jang, S. J., Ju
 Lloyd-Smith, J. O., Schreiber, S. J., Kopp, P. E., & Getz, W. M. (2005). Superspreading and the effect of individual variation on disease emergence. *Nature, 438*(7066), 355–359. https://doi.org/10.1038/nature04153
 
 Reason, J. (2000). Human error: Models and management. *BMJ, 320*(7237), 768–770. https://doi.org/10.1136/bmj.320.7237.768
-
----
-
-::: {.callout-note title="다음 단계 (교수님께)"}
-- **교수 데모 5종**(몬테카를로 동전 · 누적 위험 곡선 · 방어막 곱셈 · 위험군 격자 · 접촉 짝 폭증)을 **GitHub Pages에서 잘 도는 Julia**로 제작하는 일은 다음 세션에서 논의해 진행합니다.
-- 본문의 `그림 추가>` 표시는 삽화·그래프가 들어갈 자리입니다. 데모 산출물을 그대로 그림으로 쓸 수 있게 맞추겠습니다.
-- 14주차(챕터 3, 분포)는 7절 기댓값의 히스토그램에서 곧장 이어집니다.
-:::

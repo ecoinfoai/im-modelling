@@ -7,7 +7,7 @@ docs/chapters/*.qmd 는 직접 손대지 않는다(자동 생성물, .gitignore 
 변환 규칙
   1. 프런트매터(속성 테이블) 전부 제거 → 대신 H1 제목 한 줄. GitHub 게시본에는 속성 불필요.
   2. 콜아웃  > [!note] 제목  →  ::: {.callout-note title="제목"} … :::
-             > [!example] 교수 데모  →  ::: {.callout-note .demo …}  (보라색 ▶ 상자)
+             단, '교수 데모'·'다음 단계' 상자는 집필용 메모라 게시본에서 뺀다(DROP_TITLE_RE).
   3. 그림  ![[fig.png]] + "그림 N. 설명"
            → ![설명](../assets/fig.png){#fig-…}
            "그림 N." 은 떼어낸다. #fig- id 가 붙으면 Quarto 가 번호를 매기므로,
@@ -30,7 +30,7 @@ CALLOUT_MAP = {
     "fail": "important", "missing": "important", "bug": "important",
     "example": "note",
 }
-DEMO_TITLE_RE = re.compile(r"교수\s*데모")
+DROP_TITLE_RE = re.compile(r"교수\s*데모|다음\s*단계")
 CALLOUT_OPEN_RE = re.compile(r"^>\s*\[!([A-Za-z]+)\]([+-]?)\s*(.*)$")
 EMBED_RE = re.compile(r"^!\[\[([^\]|]+?)(?:\|([^\]]*))?\]\]\s*$")
 WIKILINK_RE = re.compile(r"(?<!!)\[\[([^\]|]+?)(?:\|([^\]]*))?\]\]")
@@ -76,7 +76,7 @@ def convert_callouts(lines):
         body, j = [], i + 1
         while j < n and lines[j].lstrip().startswith(">"):
             body.append(re.sub(r"^\s*>\s?", "", lines[j])); j += 1
-        if DEMO_TITLE_RE.search(title):      # '교수 데모' 상자는 문서 출력에서 제외
+        if DROP_TITLE_RE.search(title):      # 집필용 메모 상자는 문서 출력에서 제외
             i = j; continue
         if kind_raw == "quote":
             out.append("")
