@@ -40,6 +40,7 @@ im-modelling/
 ├── .github/workflows/
 │   └── publish.yml          master push → 렌더 → GitHub Pages 배포
 ├── flake.nix                devShell: Quarto 공식 배포판 (사전 점검용)
+├── .envrc                   direnv → 디렉터리 진입 시 devShell 자동 로드
 ├── Project.toml            ImModelling 패키지 정의 (+ 의존성)
 ├── src/ImModelling.jl       시뮬레이션·작도 함수  ← 코드는 여기
 ├── test/runtests.jl         Test.jl (TDD)
@@ -74,12 +75,16 @@ julia --project=. -e 'using Pkg; Pkg.test()'          # TDD 확인
 # 3) 문서 렌더 환경 (부모 패키지를 dev 로 물린다)
 julia --project=docs -e 'using Pkg; Pkg.develop(path="."); Pkg.instantiate()'
 
-# 4) Quarto 확인 (flake devShell 이 공식 배포판을 물어 준다)
-nix develop -c quarto check
+# 4) 개발 환경 (direnv 가 디렉터리 진입 시 자동 로드)
+direnv allow
+quarto check
 ```
 
-`nix develop` 은 `flake.nix` 가 고정한 Quarto 공식 tarball(1.10.18)을 쓴다. nixpkgs 의
-`quarto` 는 pandoc 3.7 로 빌드돼 있는데 Quarto 1.10 은 3.8.3 만 받으므로 렌더가
+`.envrc`(`use flake`) 덕에 저장소로 `cd` 하면 Quarto 가 자동으로 PATH 에 붙는다. direnv
+가 없으면 `nix develop` 으로 같은 셸에 들어가면 된다.
+
+`flake.nix` 는 Quarto 공식 tarball(1.10.18)을 고정한다. nixpkgs 의 `quarto` 는 pandoc
+3.7 로 빌드돼 있는데 Quarto 1.10 은 3.8.3 만 받으므로 렌더가
 `Unknown option "syntax-highlighting"` 로 깨진다 — devShell 밖의 `quarto` 는 쓰지 않는다.
 
 ## 평소 작업
@@ -89,7 +94,6 @@ ecoinfonix에서:
 
 ```bash
 python scripts/sync.py                 # 원고·그림 가져오기 + chapters/*.qmd 변환
-nix develop                            # Quarto 가 있는 셸로 진입
 quarto preview docs                    # 브라우저로 사전 점검
 git add -A && git commit -m "원고 갱신" && git push
 ```

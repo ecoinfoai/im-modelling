@@ -7,6 +7,9 @@ docs/.quarto/
 /*_files/
 docs/**/*_files/
 
+# direnv 캐시 (.envrc 는 커밋한다)
+.direnv/
+
 # Julia 환경 잠금 (환경별로 재생성)
 Manifest.toml
 docs/Manifest.toml
