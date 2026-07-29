@@ -37,6 +37,17 @@ format:
 
 lang: ko
 
+# 모든 페이지 하단에 라이선스·저작권을 자동으로 붙인다. 챕터는 검색·딥링크로 바로
+# 진입하므로 index 한 곳에만 두면 표시가 닿지 않는다. 외부 인용 그림의 예외는
+# 한 줄 표시로 담을 수 없어 index.qmd 의 「저작권 및 이용」 절이 받는다.
+license: "CC BY-NC-SA"
+copyright: "© 2026 정광석, 부산보건대학교 간호학과"
+
+# Quarto 의 한국어 기본값이 '라이센스' 라 표준 표기로 교정한다.
+language:
+  section-title-reuse: "라이선스"
+  appendix-view-license: "라이선스 보기"
+
 # Julia 실행 엔진. 결과를 freeze 해 두면 재렌더가 빠르고, gh-pages 배포 시 CI에 Julia가 없어도 된다.
 engine: julia
 execute:
